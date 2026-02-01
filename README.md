@@ -1,8 +1,12 @@
 # INVESTORS INN
 MEMBERS
+
 M.Shazil Hussain (2023F-BCS-089)
+
 Abdul Rafay (2023F-BCS-099)
+
 Ali Hassan Mirza (2023F-BCS-094)
+
 
 Investrs Inn
 
