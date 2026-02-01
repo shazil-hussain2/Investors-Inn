@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transfer Funds - Investors Inn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="payment.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">INVESTORS INN</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Stocks</a></li>
+            <li><a href="indexes.html">Indexes</a></li>
+            <li><a href="forex.html">Forex</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="profile-icon">
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="payment-container">
+        <h2>Complete Your Sale</h2>
+        <div class="order-summary">
+            <h3>Sale Summary</h3>
+            <div id="item-details">
+                <!-- Will be filled by JavaScript -->
+            </div>
+        </div>
+        <form action="process_transfer.php" method="post" class="payment-form">
+            <input type="hidden" name="item_type" id="item_type">
+            <input type="hidden" name="item_symbol" id="item_symbol">
+            <input type="hidden" name="quantity" id="quantity">
+            <input type="hidden" name="price" id="price">
+            <input type="hidden" name="total" id="total">
+
+            <div class="form-group">
+                <label>Quantity to Sell</label>
+                <input type="number" id="quantity-input" min="1" required>
+                <p id="available-quantity" style="color: rgba(255,255,255,0.7); font-size: 0.9em; margin-top: 5px;"></p>
+            </div>
+
+            <div class="form-group">
+                <label>Bank Name</label>
+                <input type="text" name="bank_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Account Holder Name</label>
+                <input type="text" name="account_holder_name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Account Number</label>
+                <input type="text" name="account_number" required>
+            </div>
+
+            <div class="form-group">
+                <label>IFSC Code</label>
+                <input type="text" name="ifsc_code" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Complete Sale</button>
+        </form>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const params = new URLSearchParams(window.location.search);
+        const itemType = params.get('type');
+        const symbol = params.get('symbol');
+        const price = parseFloat(params.get('price'));
+        const availableQuantity = parseFloat(params.get('available'));
+        
+        // Set hidden fields
+        document.getElementById('item_type').value = itemType;
+        document.getElementById('item_symbol').value = symbol;
+        document.getElementById('price').value = price;
+
+        // Update order summary
+        const itemDetails = document.getElementById('item-details');
+        const availableText = document.getElementById('available-quantity');
+        availableText.textContent = `Available: ${availableQuantity}`;
+
+        itemDetails.innerHTML = `
+            <p><strong>Type:</strong> ${itemType}</p>
+            <p><strong>Symbol:</strong> ${symbol}</p>
+            <p><strong>Current Price:</strong> $${price}</p>
+        `;
+
+        // Update total when quantity changes
+        const quantityInput = document.getElementById('quantity-input');
+        quantityInput.max = availableQuantity;
+        
+        quantityInput.addEventListener('input', function() {
+            const quantity = parseInt(this.value) || 0;
+            if (quantity > availableQuantity) {
+                this.value = availableQuantity;
+                return;
+            }
+            const total = quantity * price;
+            document.getElementById('quantity').value = quantity;
+            document.getElementById('total').value = total;
+            itemDetails.innerHTML = `
+                <p><strong>Type:</strong> ${itemType}</p>
+                <p><strong>Symbol:</strong> ${symbol}</p>
+                <p><strong>Current Price:</strong> $${price}</p>
+                <p><strong>Quantity to Sell:</strong> ${quantity}</p>
+                <p><strong>Total Amount:</strong> $${total.toFixed(2)}</p>
+            `;
+        });
+    </script>
+</body>
+</html> 

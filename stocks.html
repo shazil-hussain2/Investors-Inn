@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stocks - Investors Inn</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" type="text/css" href="cards.css" />
+  <link rel="stylesheet" type="text/css" href="stocks.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">INVESTORS INN</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="stocks.html" class="active">Stocks</a></li>
+      <li><a href="indexes.html">Indexes</a></li>
+      <li><a href="forex.html">Forex</a></li>
+      <li><a href="about.html">About Us</a></li>
+    </ul>
+    <div class="profile-icon">
+      <a href="login.html">Logout</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="page-header">
+    <h1>Featured Stocks</h1>
+    <p>Invest in top-performing companies</p>
+  </header>
+
+  <!-- Content Section -->
+  <div class="card-container">
+    <!-- Apple Stock -->
+    <div class="card">
+      <img src="Apple.png" alt="Apple Inc." class="card-image">
+      <div class="card-content">
+        <h2 class="card-title">Apple Inc. (AAPL)</h2>
+        <p class="card-price">$175.34</p>
+        <p class="card-description">World's most valuable technology company, known for iPhone, Mac, and services.</p>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='payment.html?type=stock&symbol=AAPL&price=175.34'">Buy</button>
+            <button class="sell-button" onclick="checkAndSell('stock', 'AAPL', 175.34)">Sell</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Microsoft Stock -->
+    <div class="card">
+      <img src="microsoft.png" alt="Microsoft" class="card-image">
+      <div class="card-content">
+        <h2 class="card-title">Microsoft Corp. (MSFT)</h2>
+        <p class="card-price">$338.45</p>
+        <p class="card-description">Leading software and cloud computing company.</p>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='payment.html?type=stock&symbol=MSFT&price=338.45'">Buy</button>
+            <button class="sell-button" onclick="checkAndSell('stock', 'MSFT', 338.45)">Sell</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tesla Stock -->
+    <div class="card">
+      <img src="Tesla.png" alt="Tesla" class="card-image">
+      <div class="card-content">
+        <h2 class="card-title">Tesla Inc. (TSLA)</h2>
+        <p class="card-price">$248.50</p>
+        <p class="card-description">Electric vehicle and clean energy company.</p>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='payment.html?type=stock&symbol=TSLA&price=248.50'">Buy</button>
+            <button class="sell-button" onclick="checkAndSell('stock', 'TSLA', 248.50)">Sell</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amazon Stock -->
+    <div class="card">
+      <img src="https://tse1.mm.bing.net/th/id/OIP.wwLA9UqAgrlotWlBGpkRwQAAAA?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Amazon" class="card-image">
+      <div class="card-content">
+        <h2 class="card-title">Amazon.com Inc. (AMZN)</h2>
+        <p class="card-price">$145.24</p>
+        <p class="card-description">E-commerce and cloud computing giant.</p>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='payment.html?type=stock&symbol=AMZN&price=145.24'">Buy</button>
+            <button class="sell-button" onclick="checkAndSell('stock', 'AMZN', 145.24)">Sell</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google Stock -->
+    <div class="card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.PjchWIlGJVOrZEOl4P1wTwHaEK?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Google" class="card-image">
+      <div class="card-content">
+        <h2 class="card-title">Alphabet Inc. (GOOGL)</h2>
+        <p class="card-price">$138.21</p>
+        <p class="card-description">Parent company of Google, leader in internet services and AI.</p>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='payment.html?type=stock&symbol=GOOGL&price=138.21'">Buy</button>
+            <button class="sell-button" onclick="checkAndSell('stock', 'GOOGL', 138.21)">Sell</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meta Stock -->
+    <div class="card">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.N6q1UQrBEZ2PVWg-HcjjyQHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Meta" class="card-image">
+      <div class="card-content">
+        <h2 class="card-title">Meta Platforms Inc. (META)</h2>
+        <p class="card-price">$378.53</p>
+        <p class="card-description">Social media and virtual reality technology company.</p>
+        <div class="button-container">
+            <button class="buy-button" onclick="window.location.href='payment.html?type=stock&symbol=META&price=378.53'">Buy</button>
+            <button class="sell-button" onclick="checkAndSell('stock', 'META', 378.53)">Sell</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+  async function checkAndSell(type, symbol, price) {
+      try {
+          const response = await fetch(`check_holdings.php?type=${type}&symbol=${symbol}`);
+          const data = await response.json();
+          
+          if (data.quantity > 0) {
+              window.location.href = `transfer.html?type=${type}&symbol=${symbol}&price=${price}&available=${data.quantity}`;
+          } else {
+              alert('You do not own any shares of this stock to sell.');
+          }
+      } catch (error) {
+          alert('Error checking holdings. Please try again.');
+      }
+  }
+  </script>
+</body>
+</html>

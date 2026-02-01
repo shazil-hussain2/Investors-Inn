@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Indexes - Investors Inn</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="cards.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">INVESTORS INN</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Stocks</a></li>
+            <li><a href="indexes.html" class="active">Indexes</a></li>
+            <li><a href="forex.html">Forex</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="profile-icon">
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Market Indexes</h1>
+        <p>Track major market benchmarks</p>
+    </header>
+
+    <div class="card-container">
+        <!-- S&P 500 -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCPrnBnAwDzHOxdmnNdT3SmmciQUyDNTa-vA&s" alt="S&P 500" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">S&P 500</h2>
+                <p class="card-price">4,783.45</p>
+                <p class="card-description">Tracks 500 large US companies, widely considered the best gauge of large-cap US stocks.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=index&symbol=SPX&price=4783.45'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('index', 'SPX', 4783.45)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dow Jones -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNP5EgOAvPw6HICp_f1Z3gY2Bs5ZvHrPzRdg&s" alt="Dow Jones" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">Dow Jones Industrial Average</h2>
+                <p class="card-price">37,654.32</p>
+                <p class="card-description">Tracks 30 prominent companies listed on US stock exchanges.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=index&symbol=DJI&price=37654.32'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('index', 'DJI', 37654.32)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NASDAQ -->
+        <div class="card">
+            <img src="Nasd.png" alt="NASDAQ" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">NASDAQ Composite</h2>
+                <p class="card-price">15,245.67</p>
+                <p class="card-description">Includes all stocks listed on the NASDAQ stock market.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=index&symbol=IXIC&price=15245.67'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('index', 'IXIC', 15245.67)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- FTSE 100 -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT99J4u2tZ0NjvLHXeiqV3jfMNwD470VQvSvQ&s" alt="FTSE 100" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">FTSE 100</h2>
+                <p class="card-price">7,687.56</p>
+                <p class="card-description">Represents the 100 largest companies listed on the London Stock Exchange.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=index&symbol=FTSE&price=7687.56'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('index', 'FTSE', 7687.56)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nikkei 225 -->
+        <div class="card">
+            <img src="https://cdn.plus500.com/Media/ArticlesMain/Nikkei225.png" alt="Nikkei 225" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">Nikkei 225</h2>
+                <p class="card-price">33,452.89</p>
+                <p class="card-description">Japan's leading index of top 225 companies traded on the Tokyo Stock Exchange.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=index&symbol=NKY&price=33452.89'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('index', 'NKY', 33452.89)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- DAX -->
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk_Jv-DarP4Iru8KzYEqY6hm1JiowLfN8Mig&s" alt="DAX" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">DAX Performance Index</h2>
+                <p class="card-price">16,754.23</p>
+                <p class="card-description">Tracks 40 largest companies on the Frankfurt Stock Exchange.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=index&symbol=DAX&price=16754.23'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('index', 'DAX', 16754.23)">Sell</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    async function checkAndSell(type, symbol, price) {
+        try {
+            const response = await fetch(`check_holdings.php?type=${type}&symbol=${symbol}`);
+            const data = await response.json();
+            
+            if (data.quantity > 0) {
+                window.location.href = `transfer.html?type=${type}&symbol=${symbol}&price=${price}&available=${data.quantity}`;
+            } else {
+                alert('You do not own any units of this index to sell.');
+            }
+        } catch (error) {
+            alert('Error checking holdings. Please try again.');
+        }
+    }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forex Trading - Investors Inn</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="cards.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">INVESTORS INN</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Stocks</a></li>
+            <li><a href="indexes.html">Indexes</a></li>
+            <li><a href="forex.html" class="active">Forex</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="profile-icon">
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h1>Forex Trading</h1>
+        <p>Trade major currency pairs</p>
+    </header>
+
+    <div class="card-container">
+        <!-- EUR/USD -->
+        <div class="card">
+            <img src="https://flagcdn.com/w640/eu.png" alt="EUR/USD" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">EUR/USD</h2>
+                <p class="card-price">1.0945</p>
+                <p class="card-description">Euro vs US Dollar - The world's most traded currency pair.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=forex&symbol=EURUSD&price=1.0945'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('forex', 'EURUSD', 1.0945)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- GBP/USD -->
+        <div class="card">
+            <img src="https://flagcdn.com/w640/gb.png" alt="GBP/USD" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">GBP/USD</h2>
+                <p class="card-price">1.2734</p>
+                <p class="card-description">British Pound vs US Dollar - Also known as 'Cable'.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=forex&symbol=GBPUSD&price=1.2734'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('forex', 'GBPUSD', 1.2734)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- USD/JPY -->
+        <div class="card">
+            <img src="https://flagcdn.com/w640/jp.png" alt="USD/JPY" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">USD/JPY</h2>
+                <p class="card-price">142.34</p>
+                <p class="card-description">US Dollar vs Japanese Yen - Major pair in Asian markets.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=forex&symbol=USDJPY&price=142.34'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('forex', 'USDJPY', 142.34)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- USD/CHF -->
+        <div class="card">
+            <img src="https://flagcdn.com/w640/ch.png" alt="USD/CHF" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">USD/CHF</h2>
+                <p class="card-price">0.8456</p>
+                <p class="card-description">US Dollar vs Swiss Franc - Known as 'Swissy'.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=forex&symbol=USDCHF&price=0.8456'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('forex', 'USDCHF', 0.8456)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- AUD/USD -->
+        <div class="card">
+            <img src="https://flagcdn.com/w640/au.png" alt="AUD/USD" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">AUD/USD</h2>
+                <p class="card-price">0.6823</p>
+                <p class="card-description">Australian Dollar vs US Dollar - 'Aussie'.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=forex&symbol=AUDUSD&price=0.6823'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('forex', 'AUDUSD', 0.6823)">Sell</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- USD/CAD -->
+        <div class="card">
+            <img src="https://flagcdn.com/w640/ca.png" alt="USD/CAD" class="card-image">
+            <div class="card-content">
+                <h2 class="card-title">USD/CAD</h2>
+                <p class="card-price">1.3245</p>
+                <p class="card-description">US Dollar vs Canadian Dollar - 'Loonie'.</p>
+                <div class="button-container">
+                    <button class="buy-button" onclick="window.location.href='payment.html?type=forex&symbol=USDCAD&price=1.3245'">Buy</button>
+                    <button class="sell-button" onclick="checkAndSell('forex', 'USDCAD', 1.3245)">Sell</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    async function checkAndSell(type, symbol, price) {
+        try {
+            const response = await fetch(`check_holdings.php?type=${type}&symbol=${symbol}`);
+            const data = await response.json();
+            
+            if (data.quantity > 0) {
+                window.location.href = `transfer.html?type=${type}&symbol=${symbol}&price=${price}&available=${data.quantity}`;
+            } else {
+                alert('You do not own any units of this currency pair to sell.');
+            }
+        } catch (error) {
+            alert('Error checking holdings. Please try again.');
+        }
+    }
+    </script>
+</body>
+</html> 

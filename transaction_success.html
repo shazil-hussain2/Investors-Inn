@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction Successful - Investors Inn</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .success-container {
+            max-width: 600px;
+            margin: 100px auto;
+            padding: 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            color: white;
+        }
+
+        .success-icon {
+            font-size: 64px;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .success-message {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">INVESTORS INN</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="stocks.html">Stocks</a></li>
+            <li><a href="indexes.html">Indexes</a></li>
+            <li><a href="forex.html">Forex</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="profile-icon">
+            <a href="login.html">Logout</a>
+        </div>
+    </nav>
+
+    <div class="success-container">
+        <div class="success-icon">✓</div>
+        <div class="success-message">Transaction Successful!</div>
+        <p>Your purchase has been completed successfully.</p>
+        <p>You can view your holdings in your portfolio.</p>
+        <br>
+        <a href="index.html" class="back-btn">Back to Home</a>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Login Form | Investors Inn</title>
+      <link rel="stylesheet" type="text/css" href="login.css">
+      <style>
+         .error-message {
+            color: #ff4444 !important;
+            text-align: center;
+            margin-bottom: 15px;
+            background: rgba(255, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            display: none;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="wrapper">
+         <div class="title">
+            Login Form
+         </div>
+         <form action="login_verify.php" method="post">
+            <div class="error-message" id="error-msg">Invalid email or password</div>
+            <div class="field">
+               <input type="text" name="email" required>
+               <label>Email Address</label>
+            </div>
+            <div class="field">
+               <input type="password" name="password" required>
+               <label>Password</label>
+            </div>
+            <div class="content">
+               <div class="checkbox">
+                  <input type="checkbox" id="remember-me">
+                  <label for="remember-me">Remember me</label>
+               </div>
+               <div class="pass-link">
+                  <a href="#">Forgot password?</a>
+               </div>
+            </div>
+            <div class="field">
+               <input type="submit" value="Login">
+            </div>
+            <div class="signup-link">
+               Not a member? <a href="register.html">Signup now</a>
+            </div>
+         </form>
+      </div>
+      <script>
+         // Check for error parameter in URL
+         const urlParams = new URLSearchParams(window.location.search);
+         if (urlParams.get('error') === '1') {
+            document.getElementById('error-msg').style.display = 'block';
+         }
+      </script>
+   </body>
+</html>
+         
+      </script>
+   </body>
+</html>
+         
+      </script>
+   </body>
+</html>
+   </body>
+</html>

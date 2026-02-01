@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: linear-gradient(135deg, #2D2E73, #2c5282);
+  background-attachment: fixed;
+}
+::selection{
+  background: #2c5282;
+  color: #fff;
+}
+.wrapper{
+  width: 380px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wrapper .title{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.wrapper form{
+  padding: 30px 40px 50px 40px;
+}
+.wrapper form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+.wrapper form .field label{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:valid ~ label{
+  top: 0%;
+  font-size: 14px;
+  color: #fff;
+  background: rgba(44, 82, 130, 0.8);
+  padding: 0 5px;
+  transform: translateY(-50%);
+  border-radius: 4px;
+}
+form .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px 0;
+}
+form .content .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .content input{
+  width: 15px;
+  height: 15px;
+  accent-color: #fff;
+}
+form .content label{
+  color: rgba(255, 255, 255, 0.8);
+  user-select: none;
+  padding-left: 5px;
+}
+form .content .pass-link{
+  color: #fff;
+}
+form .field input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding: 0;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+form .field input[type="submit"]:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+form .field input[type="submit"]:active{
+  transform: translateY(0);
+}
+form .signup-link{
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 20px;
+  text-align: center;
+}
+form .pass-link a,
+form .signup-link a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+}
+form .pass-link a:hover,
+form .signup-link a:hover{
+  text-decoration: underline;
+}
+
+/* Error message styling */
+.error-message {
+  color: #ff4444 !important;
+  text-align: center;
+  margin-bottom: 15px;
+  background: rgba(255, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
+}
